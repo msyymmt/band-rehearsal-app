@@ -23,7 +23,7 @@ export function detectHowling(frequencyData, audioContext, threshold = 200) {
 
   // Check if peak is significantly higher than surrounding values (narrow peak = feedback)
   const surroundingAvg =
-    (frequencyData[maxIndex - 5] || 0) +
+    ((frequencyData[maxIndex - 5] || 0) +
     (frequencyData[maxIndex - 3] || 0) +
     (frequencyData[maxIndex + 3] || 0) +
     (frequencyData[maxIndex + 5] || 0)) /

@@ -143,3 +143,174 @@
   color: #ccc;
   padding: 2rem;
 }
+
+.calibration-mode {
+  width: 100%;
+  max-width: 400px;
+  padding: 1.5rem;
+}
+
+.calibration-mode h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.calibration-progress {
+  margin-bottom: 2rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #333;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  text-align: center;
+  color: #aaa;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.calibration-status {
+  text-align: center;
+  padding: 0.8rem;
+  background-color: rgba(76, 175, 80, 0.2);
+  border-left: 4px solid #4caf50;
+  color: #4caf50;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+}
+
+.instrument-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.instrument-card {
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid #444;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.instrument-card:hover {
+  border-color: #666;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.instrument-card.active {
+  border-color: #1976d2;
+  background-color: rgba(25, 118, 210, 0.15);
+}
+
+.instrument-card.recorded {
+  border-color: #4caf50;
+  background-color: rgba(76, 175, 80, 0.15);
+}
+
+.instrument-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.instrument-name {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 0.8rem;
+}
+
+.btn-calibrate {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  background-color: #1976d2;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-calibrate:hover:not(:disabled) {
+  background-color: #1565c0;
+}
+
+.btn-calibrate:disabled {
+  background-color: #4caf50;
+  cursor: default;
+  opacity: 0.8;
+}
+
+.calibration-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sample-counter {
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.btn-start-sample,
+.btn-stop-sample,
+.btn-skip {
+  padding: 0.6rem;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-start-sample {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.btn-start-sample:hover {
+  background-color: #45a049;
+}
+
+.btn-stop-sample {
+  background-color: #ff9800;
+  color: #fff;
+}
+
+.btn-stop-sample:hover {
+  background-color: #e68900;
+}
+
+.btn-skip {
+  background-color: #666;
+  color: #fff;
+}
+
+.btn-skip:hover {
+  background-color: #555;
+}
+
+.calibration-note {
+  text-align: center;
+  color: #999;
+  font-size: 0.85rem;
+  margin: 0;
+}

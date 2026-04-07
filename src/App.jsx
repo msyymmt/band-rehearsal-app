@@ -3,6 +3,8 @@ import { useAudioCapture } from './hooks/useAudioCapture'
 import { useFrequencyAnalysis } from './hooks/useFrequencyAnalysis'
 import { AudioControl } from './components/AudioControl'
 import { SpectrumDisplay } from './components/SpectrumDisplay'
+import { CalibrationMode } from './components/CalibrationMode'
+import { isCalibrated } from './utils/calibrationStorage'
 import './App.css'
 
 export default function App() {
@@ -18,8 +20,7 @@ export default function App() {
     }
 
     // Check if calibration data exists in localStorage
-    const calibrationData = localStorage.getItem('bandRehearsalCalibration')
-    if (calibrationData) {
+    if (isCalibrated()) {
       setAppState('analysis')
     } else {
       setAppState('calibration')
@@ -54,9 +55,14 @@ export default function App() {
 
       {appState === 'calibration' && (
         <div className="calibration-screen">
-          <h2>楽器キャリブレーション</h2>
-          <p>各楽器の周波数特性を学習させてください。</p>
-          <button onClick={handleStartCalibration}>開始</button>
+          <CalibrationMode
+            analyser={analyser}
+            frequencyData={frequencyData}
+            isActive={isActive}
+            onStartCapture={startCapture}
+            onStopCapture={stopCapture}
+            onComplete={handleCalibrationComplete}
+          />
         </div>
       )}
 

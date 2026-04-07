@@ -4,6 +4,7 @@ import { useFrequencyAnalysis } from './hooks/useFrequencyAnalysis'
 import { AudioControl } from './components/AudioControl'
 import { SpectrumDisplay } from './components/SpectrumDisplay'
 import { BandDiagnosis } from './components/BandDiagnosis'
+import { EQGuidance } from './components/EQGuidance'
 import { CalibrationMode } from './components/CalibrationMode'
 import { isCalibrated } from './utils/calibrationStorage'
 import './App.css'
@@ -75,6 +76,7 @@ export default function App() {
             <>
               <SpectrumDisplay frequencyData={frequencyData} audioContext={audioContext} peakFrequency={peakFrequency} />
               <BandDiagnosis frequencyData={frequencyData} audioContext={audioContext} />
+              <EQGuidance frequencyData={frequencyData} audioContext={audioContext} />
             </>
           )}
 

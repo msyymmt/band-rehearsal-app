@@ -1,1 +1,1 @@
-# Band Rehearsal Support App
+# band-rehearsal-app

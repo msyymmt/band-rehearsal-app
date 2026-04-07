@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react'
+import { useAudioCapture } from './hooks/useAudioCapture'
+import { useFrequencyAnalysis } from './hooks/useFrequencyAnalysis'
+import { AudioControl } from './components/AudioControl'
+import { SpectrumDisplay } from './components/SpectrumDisplay'
 import './App.css'
 
 export default function App() {
   const [appState, setAppState] = useState('startup') // startup, calibration, analysis
-  const [error, setError] = useState(null)
+  const { isActive, startCapture, stopCapture, analyser, error: audioError, audioContext } = useAudioCapture()
+  const { frequencyData, peakFrequency } = useFrequencyAnalysis(analyser, audioContext)
 
   useEffect(() => {
     // Check if browser supports Web Audio API
-    const audioContext = window.AudioContext || window.webkitAudioContext
-    if (!audioContext) {
-      setError('Web Audio API not supported in this browser')
+    const audioContextClass = window.AudioContext || window.webkitAudioContext
+    if (!audioContextClass) {
       return
     }
 
@@ -26,7 +30,7 @@ export default function App() {
     setAppState('calibration')
   }
 
-  const handleCalibraisonComplete = () => {
+  const handleCalibrationComplete = () => {
     setAppState('analysis')
   }
 
@@ -36,9 +40,9 @@ export default function App() {
         <h1>🎸 Band Rehearsal Analyzer</h1>
       </header>
 
-      {error && (
+      {audioError && (
         <div className="error-banner">
-          <p>{error}</p>
+          <p>Error: {audioError}</p>
         </div>
       )}
 
@@ -58,8 +62,17 @@ export default function App() {
 
       {appState === 'analysis' && (
         <div className="analysis-screen">
-          <h2>バンド分析</h2>
-          <p>演奏を分析中...</p>
+          <AudioControl isActive={isActive} onStart={startCapture} onStop={stopCapture} error={audioError} />
+
+          {audioContext && frequencyData && (
+            <SpectrumDisplay frequencyData={frequencyData} audioContext={audioContext} peakFrequency={peakFrequency} />
+          )}
+
+          {!frequencyData && (
+            <div className="loading">
+              <p>周波数解析を初期化中...</p>
+            </div>
+          )}
         </div>
       )}
     </div>

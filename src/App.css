@@ -1,0 +1,50 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.app-header {
+  padding: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid #333;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.app-header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.error-banner {
+  background-color: #d32f2f;
+  padding: 1rem;
+  text-align: center;
+  color: #fff;
+}
+
+.startup-screen,
+.calibration-screen,
+.analysis-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.calibration-screen h2,
+.analysis-screen h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.calibration-screen p,
+.analysis-screen p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+}

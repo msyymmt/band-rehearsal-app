@@ -314,3 +314,129 @@
   font-size: 0.85rem;
   margin: 0;
 }
+
+.band-diagnosis {
+  width: 100%;
+  max-width: 375px;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.diagnosis-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.score-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.score-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.score-status {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.instrument-volumes {
+  margin-bottom: 1.5rem;
+}
+
+.instrument-volumes h4 {
+  font-size: 0.95rem;
+  margin: 0 0 1rem 0;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.volume-bar-item {
+  margin-bottom: 1rem;
+}
+
+.volume-label {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 0.4rem;
+}
+
+.volume-bar-container {
+  width: 100%;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.volume-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #1976d2 0%, #42a5f5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0.5rem;
+  transition: width 0.1s ease;
+}
+
+.volume-bar.interfering {
+  background: linear-gradient(90deg, #f44336 0%, #ef5350 100%);
+}
+
+.volume-text {
+  font-size: 0.75rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.recommendations {
+  background-color: rgba(255, 152, 0, 0.1);
+  border-left: 3px solid #ff9800;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.recommendations h4 {
+  font-size: 0.95rem;
+  margin: 0 0 0.8rem 0;
+  color: #ff9800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.recommendations ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recommendations li {
+  padding: 0.5rem 0;
+  color: #ccc;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255, 152, 0, 0.2);
+}
+
+.recommendations li:last-child {
+  border-bottom: none;
+}

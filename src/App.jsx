@@ -3,6 +3,7 @@ import { useAudioCapture } from './hooks/useAudioCapture'
 import { useFrequencyAnalysis } from './hooks/useFrequencyAnalysis'
 import { AudioControl } from './components/AudioControl'
 import { SpectrumDisplay } from './components/SpectrumDisplay'
+import { BandDiagnosis } from './components/BandDiagnosis'
 import { CalibrationMode } from './components/CalibrationMode'
 import { isCalibrated } from './utils/calibrationStorage'
 import './App.css'
@@ -71,7 +72,10 @@ export default function App() {
           <AudioControl isActive={isActive} onStart={startCapture} onStop={stopCapture} error={audioError} />
 
           {audioContext && frequencyData && (
-            <SpectrumDisplay frequencyData={frequencyData} audioContext={audioContext} peakFrequency={peakFrequency} />
+            <>
+              <SpectrumDisplay frequencyData={frequencyData} audioContext={audioContext} peakFrequency={peakFrequency} />
+              <BandDiagnosis frequencyData={frequencyData} audioContext={audioContext} />
+            </>
           )}
 
           {!frequencyData && (
